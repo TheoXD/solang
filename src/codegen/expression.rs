@@ -3242,13 +3242,13 @@ pub(super) fn assert_failure(
 
 /// Generate the binary code for a contract
 fn code(loc: &Loc, contract_no: usize, ns: &Namespace, opt: &Options) -> Expression {
-    let contract = &ns.contracts[contract_no];
+    //let contract = &ns.contracts[contract_no];
 
-    let code = contract.emit(ns, opt);
+    //let code = contract.emit(ns, opt);
 
-    let size = Expression::NumberLiteral(*loc, Type::Uint(32), code.len().into());
+    let size = Expression::NumberLiteral(*loc, Type::Uint(32));
 
-    Expression::AllocDynamicBytes(*loc, Type::DynamicBytes, size.into(), Some(code))
+    Expression::AllocDynamicBytes(*loc, Type::DynamicBytes, size.into(), None)
 }
 
 fn string_to_expr(string: String) -> Expression {
