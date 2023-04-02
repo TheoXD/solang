@@ -3246,7 +3246,7 @@ fn code(loc: &Loc, contract_no: usize, ns: &Namespace, opt: &Options) -> Express
 
     //let code = contract.emit(ns, opt);
 
-    let size = Expression::NumberLiteral(*loc, Type::Uint(32));
+    let size = Expression::NumberLiteral(*loc, Type::Uint(32), BigInt::one());
 
     Expression::AllocDynamicBytes(*loc, Type::DynamicBytes, size.into(), None)
 }
